@@ -8,4 +8,4 @@ from django.contrib import admin
 from .models import Registrado
 
 # registrado el modelo Registrado dentro del admin
-admin.site.Register(Registrado)
+admin.site.register(Registrado)
