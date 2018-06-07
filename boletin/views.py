@@ -8,6 +8,8 @@ from .models import Registrado
 
 #Importar formularios a la vista
 from .forms import RegForm
+#importando el modelo base 
+from .models import Registrado
 
 # Create your views here.
 def home(request):
@@ -22,6 +24,18 @@ def home(request):
         #metodo get("nombre_campo_class_form") para traer el contenido
         print data_form.get("nombre")
         print data_form.get("email")
+        data_form_email = data_form.get("email")
+        #guardando en la BD Nombre_modelo_objects.metodo_create(nombres_campos_modelos = datos_procesados)
+        #obj_reg = Registrado.objects.create(email = data_form_email)
+
+        #Otra manera de guardar el objeto
+        # usar el nombre del modelo con su construsctor
+        data_obj = Registrado()
+        # obtener data para guardar en BD
+        data_obj.email = data_form.get("email")
+        data_obj.nombre = data_form.get("nombre")
+        # guardar el objeto en la bd
+        data_obj.save()
 
     #limpiar el form
     #form.clean_fields
