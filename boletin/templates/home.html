@@ -2,6 +2,9 @@
 
 <h2>AGREGANDO UN FORM</></h2>
 
-<form>
+<form action="" method="POST">
+<!--agregando csrf_token para seguridad contra peticiones contra la app-->
+{% csrf_token %}
 {{ form.as_p }}
+<input type="submit" value="registrar">
 </form>
