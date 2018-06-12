@@ -7,7 +7,7 @@ from django.shortcuts import render
 from .models import Registrado
 
 #Importar formularios a la vista
-from .forms import RegForm
+from .forms import RegModalForm,ContactForm
 #importando el modelo base 
 from .models import Registrado
 
@@ -15,9 +15,13 @@ from .models import Registrado
 def home(request):
     #si agregamos request.POST, le indicamos en el form q el metodo el POST y procesaremos la data como tal
     #si se agrega el None, se desactivan los campos obligatorios
+    user_login = "Bienvenido Usuario logeado"
     form = RegForm(request.POST or None)
     #Operaciones que podemos ver o realizarle al form se pueden ver con print(dir(form)) en la terminal del servidor de djago
     #print(dir(form))
+    if request.user.is_authenticated():
+        user_login = "Bienvenido %s"  %(request.user)
+
     if form.is_valid():
         # almacena toda la data del form en un diccionario usando el metodo cleaned_data
         data_form = form.cleaned_data
@@ -39,5 +43,30 @@ def home(request):
 
     #limpiar el form
     #form.clean_fields
-    context = { "form" : form }
+    context = { 
+        "form" : form,
+        "msj_user" : user_login
+     }
     return render(request,'home.html',context)
+
+
+def contact(request):
+    form = ContactForm(request.POST or None)
+    if form.is_valid():
+        print form.cleaned_data
+        email = form.cleaned_data.get("email")
+        msj = form.cleaned_data.get("mensj")
+        name = form.cleaned_data.get("nombre")
+        context = {
+            "form" : form,
+            "nombre" : name,
+            "email" : email,
+            "mensaje" : msj
+        }
+    
+    error_data = "no almaceno correctamente"
+    context = {
+        "form" : form,
+        "error_msj" : error_data
+    }
+    return render(request,"contact.html", context)
