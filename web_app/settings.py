@@ -62,7 +62,7 @@ ROOT_URLCONF = 'web_app.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, "templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -140,7 +140,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static_pro","static")
+]
+
+# CONFIG to production
+STATIC_ROOT = os.path.join(os.path.join(BASE_DIR), "static_env","static_root")
+MEDIA_ROOT = os.path.join(os.path.join(BASE_DIR), "static_env","media_root")
 
 # Usuario del admin django
 # username rabindranath
