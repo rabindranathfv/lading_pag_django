@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render
 #import settings
-from django.config import settings
+from django.conf import settings
 # import para envio de correo
 from django.core.mail import send_mail
 
@@ -75,15 +75,15 @@ def contact(request):
         #     print(form.cleaned_data.get(key))
 
         asunto = 'Envio de correo'
-        mensj_email = "%s: %s enviado por %s" $(name, msj, email)
+        mensj_email = "%s: %s enviado por %s" %(name, msj, email)
         email_from = settings.EMAIL_HOST_USER
-        email_to = [email_from, "ferreiralox@gmail.com"]
+        email_to = [email_from, email]
         #send_mail
         send_mail(asunto,
             mensj_email,
             email_from,
             email_to,
-            fail_silently = True
+            fail_silently = False
         )
         context = {
              "form" : form,
