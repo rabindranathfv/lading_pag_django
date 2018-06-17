@@ -1,7 +1,12 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+
 from django.shortcuts import render
+#import settings
+from django.config import settings
+# import para envio de correo
+from django.core.mail import send_mail
 
 #Importar el modelo creado
 from .models import Registrado
@@ -54,27 +59,27 @@ def contact(request):
     form = ContactForm(request.POST or None)
     if form.is_valid():
         print form.cleaned_data
-        # email = form.cleaned_data.get("email")
-        # msj = form.cleaned_data.get("mensj")
-        # name = form.cleaned_data.get("nombre")
+        email = form.cleaned_data.get("email")
+        msj = form.cleaned_data.get("mensj")
+        name = form.cleaned_data.get("nombre")
 
         # otra forma de sacar/mostrar/procesar data
 
-        print("iterando sobre la data almacenada y mostrandola")
-        for key,data in form.cleaned_data.iteritems():
-            print key, data
+        # print("iterando sobre la data almacenada y mostrandola")
+        # for key,data in form.cleaned_data.iteritems():
+        #     print key, data
 
-        print("otra forma mas sencilla de mostrar data almacenada")
-        for key in form.cleaned_data:
-            print(key)
-            print(form.cleaned_data.get(key))
+        # print("otra forma mas sencilla de mostrar data almacenada")
+        # for key in form.cleaned_data:
+        #     print(key)
+        #     print(form.cleaned_data.get(key))
 
-        # context = {
-        #     "form" : form,
-        #     "nombre" : name,
-        #     "email" : email,
-        #     "mensaje" : msj
-        # }
+        context = {
+             "form" : form,
+             "nombre" : name,
+             "email" : email,
+             "mensaje" : msj
+         }
     
     error_data = "no almaceno correctamente"
     context = {
