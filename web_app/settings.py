@@ -27,6 +27,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+#Configuracion para envio de correo con gmail
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'rabindranathucv@gmail.com'
+EMAIL_HOST_PASSWORD = 'rabin141290'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 
 # Application definition
 
