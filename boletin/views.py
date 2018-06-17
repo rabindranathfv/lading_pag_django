@@ -74,6 +74,17 @@ def contact(request):
         #     print(key)
         #     print(form.cleaned_data.get(key))
 
+        asunto = 'Envio de correo'
+        mensj_email = "%s: %s enviado por %s" $(name, msj, email)
+        email_from = settings.EMAIL_HOST_USER
+        email_to = [email_from, "ferreiralox@gmail.com"]
+        #send_mail
+        send_mail(asunto,
+            mensj_email,
+            email_from,
+            email_to,
+            fail_silently = True
+        )
         context = {
              "form" : form,
              "nombre" : name,
