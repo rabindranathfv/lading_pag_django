@@ -49,6 +49,9 @@ INSTALLED_APPS = [
     'boletin',
 ]
 
+## for use cryspy forms
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
