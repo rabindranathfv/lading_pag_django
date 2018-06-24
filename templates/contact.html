@@ -1,6 +1,7 @@
 <!-- hereda todos los elementos de base.html-->
 {% extends "base.html" %}
-
+<!-- load cryspy form in template -->
+{% load crispy_forms_tags %}
 
 
 {% block content %}
@@ -8,8 +9,8 @@
 <h1>FORMULARIO DE CONTACTO</h1>
 <form method="POST" action="">
 {% csrf_token %}
-{{ form.as_p }}
-<input type="submit" value="registrar">
+{{ form|crispy }}
+<input class="btn btn-bg btn-primary" type="submit" value="registrar">
 </form>
 
 {% endblock %}
