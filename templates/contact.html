@@ -1,9 +1,17 @@
+<!-- hereda todos los elementos de base.html-->
+{% extends "base.html" %}
 
 
+
+{% block content %}
+  
 <h1>FORMULARIO DE CONTACTO</h1>
-
 <form method="POST" action="">
 {% csrf_token %}
 {{ form.as_p }}
 <input type="submit" value="registrar">
 </form>
+
+{% endblock %}
+
+<hr class="featurette-divider">
