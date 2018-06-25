@@ -158,3 +158,7 @@ MEDIA_ROOT = os.path.join(os.path.join(BASE_DIR), "static_env","media_root")
 # Usuario del admin django
 # username rabindranath
 # passwd rabin141290
+
+# nuevo super admin
+# test
+# usertest
