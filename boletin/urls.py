@@ -21,4 +21,5 @@ from . import views
 urlpatterns = [
     url(r'^$', views.home, name= 'home'),
     url(r'^contacto/$', views.contact, name= 'contact'),
+    url(r'^about/$', views.about, name= 'about'),
 ]
