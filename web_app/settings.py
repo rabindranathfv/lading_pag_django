@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'crispy_forms',
 
     'boletin',
+    'main_app',
 ]
 
 ## for use cryspy forms
