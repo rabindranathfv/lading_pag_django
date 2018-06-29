@@ -11,3 +11,7 @@ class Persona(models.Model):
     telefono = models.CharField(max_length=12)
     email = models.EmailField()
     domicilio = models.TextField()
+
+    def __unicode__(sef):
+        return self.nombre
+        

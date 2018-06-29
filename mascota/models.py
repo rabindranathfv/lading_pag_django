@@ -7,6 +7,10 @@ from django.db import models
 class Vacuna(models.Model):
     nombre = models.CharField(max_length=50)
 
+    def __unicode__(self):
+        return self.nombre
+        
+
 
 class Mascota(models.Model):
     folio = models.CharField(max_length=10, primary_key=True)
@@ -14,5 +18,8 @@ class Mascota(models.Model):
     sexo = models.CharField(max_length=10)
     edad_aproximada = models.IntegerField()
     fecha_rescate = models.DateField()
-    persona = models.ForeignKey('mascota.Persona',blank=True, null=True, on_delete=models.CASCADE)
+    persona = models.ForeignKey('adopcion.Persona',blank=True, null=True, on_delete=models.CASCADE)
     vacuna = models.ManyToManyField(Vacuna)
+
+    def __unicode__(self):
+        return self.nombre
