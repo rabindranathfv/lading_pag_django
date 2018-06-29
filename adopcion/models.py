@@ -12,6 +12,6 @@ class Persona(models.Model):
     email = models.EmailField()
     domicilio = models.TextField()
 
-    def __unicode__(sef):
+    def __unicode__(self):
         return self.nombre
         
