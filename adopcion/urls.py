@@ -20,9 +20,12 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 
+from . import views
+
 
 
 urlpatterns = [
     #url de tipo /id/ruta1 --> /5/ruta1
     #url(r'^(?P<parametro_nombre>[0-9]*+/ruta1)', views.name_function,name="nombre_vista"),
+    url(r'^home/$', views.home,name="home"),
 ]

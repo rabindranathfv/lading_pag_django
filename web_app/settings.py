@@ -100,8 +100,6 @@ DATABASES = {
     }
 }
 
-
-
 # SQL configuration
 # DATABASES = {
 #     'default': {
