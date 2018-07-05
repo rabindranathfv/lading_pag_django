@@ -1,46 +1,19 @@
-
 <!DOCTYPE html>
-
-{% load static %}
-
 <html lang="en">
-  <head>
-   {% include "head.html" %}
-  </head>
-<!-- NAVBAR
-================================================== -->
-  <body>
+<head>
+  <title>{% block title%}  {% endblock %}</title>
 
+  
+</head>
+<body>
 
+{% include "navbar.html" %}
+  
+{% block content %}
+  
+{% endblock %}
 
-    {% include "navbar.html" %}
+{% include "footer.html" %}
 
-    <!-- Marketing messaging and featurettes
-    ================================================== -->
-    <!-- Wrap the rest of the page in another container to center all the content. -->
-
-    {% include "carousel.html" %}
-
-    
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2">
-    {% block content %}
-      
-    {% endblock %}
-    
-      </div>
-    </div>
-
-    <hr class="featurette-divider">
-
-
-      <hr class="featurette-divider">
-
-
-      <hr class="featurette-divider">
-
-
-      {% include "footer.html" %}
-   
-  </body>
+</body>
 </html>
