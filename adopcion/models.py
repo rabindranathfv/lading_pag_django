@@ -13,5 +13,5 @@ class Persona(models.Model):
     domicilio = models.TextField()
 
     def __unicode__(self):
-        return self.nombre
+        return '{} {}'.format(self.nombre, self.apellido)
         
