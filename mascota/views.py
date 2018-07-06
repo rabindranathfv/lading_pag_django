@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 
 from .models import Vacuna,Mascota
 from .forms import MascotaForm
@@ -12,6 +12,7 @@ def mascota_views(request):
         form = MascotaForm(request.POST or None)
         if form.is_valid():
             form.save()
+            return redirect('adopcion:home')
     else:
         form = MascotaForm(request.POST or None)
 
