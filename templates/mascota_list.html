@@ -25,6 +25,9 @@
                     <td>{{ mascotas.edad_aproximada }}</td>
                     <td>{{ mascotas.fecha_rescate }}</td>
                     <td>{{ mascotas.persona.nombre }}</td>
+                    <td>
+                        <a class= "btn btn-primary" href="{% url 'mascota:mascota_list_views' id_mascota %}">Acciones</a>
+                    </td>
                 </tr>
             {% endfor %}
         {% else %}
