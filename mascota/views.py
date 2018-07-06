@@ -18,3 +18,13 @@ def mascota_views(request):
 
     context = {'form': form}
     return render(request,"mascota.html",context)
+
+def mascota_list_views(request):
+    # QuerySet for list pets
+    mascota = Mascota.objects.all()
+
+    context = {
+        'mascotas': mascota
+    }
+    return render(request,"mascota_list.html",context)
+    

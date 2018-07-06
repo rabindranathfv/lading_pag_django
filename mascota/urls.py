@@ -24,6 +24,6 @@ from . import views
 
 urlpatterns = [
     url(r'^mascota/$', views.mascota_views,name="mascota"),
-
+    url(r'^listar/$', views.mascota_list_views,name="lista de mascotas"),
 ]
 

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-  
+<br><br><br><br>  
 <table class="table table-bordered">
     <thead>
         <tr>
@@ -15,15 +15,21 @@
     </thead>
 
     <tbody>
-        <tr>
-            <td>{{ }}</td>
-            <td>{{ }}</td>
-            <td>{{ }}</td>
-            <td>{{ }}</td>
-            <td>{{ }}</td>
-            <td>{{ }}</td>
-        </tr>
-
+        <!-- VIDEO 13 -->
+        {% if mascota %}
+            {% for mascotas in mascota %}
+                <tr>
+                    <td>{{ mascotas.id }}</td>
+                    <td>{{ mascotas.nombre }}</td>
+                    <td>{{ mascotas.sexo }}</td>
+                    <td>{{ mascotas.edad }}</td>
+                    <td>{{ mascotas.fecha_rescate }}</td>
+                    <td>{{ mascotas.persona.nombre }}</td>
+                </tr>
+            {% endfor %}
+        {% else %}
+                <h2>No hay mascotas registradas </h2>
+        {% endif %}
     </tbody>
 
 </table>
