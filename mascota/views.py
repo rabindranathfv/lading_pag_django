@@ -21,18 +21,17 @@ def mascota_views(request):
 
 def mascota_list_views(request):
     # QuerySet for list pets
-    m1 = Mascota.objects.all()
-    print(m1)
     mascota = Mascota.objects.all()
-
+    print(mascota)
     context = {
         'mascotas': mascota,
+        'test': 'PROBANDO',
     }
     return render(request,"mascota_list.html",context)
 
 def mascota_edit_views(request,id_mascota):
     mascota = Mascota.objects.get(pk=id_mascota)
-
+    
     if request.method == 'GET':
         form = MascotaForm(instance=mascota)
     else:

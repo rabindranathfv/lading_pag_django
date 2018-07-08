@@ -25,7 +25,6 @@ from . import views
 urlpatterns = [
     url(r'^mascota/$', views.mascota_views,name="mascota"),
     url(r'^mascota/listar/$', views.mascota_list_views,name="lista de mascotas"),
-    url(r'^mascota/editar/(?P<id_mascota>[0-9])+/$', views.mascota_list_views,name="editar mascota"),
-    url(r'^mascota/eliminar/(?P<id_mascota>[0-9])+/$', views.mascota_delete_views,name="eliminar mascota"),
+    url(r'^mascota/editar/(?P<id_mascota>\d+)$', views.mascota_list_views,name="editar mascota"),
+    url(r'^mascota/eliminar/(?P<id_mascota>\d+)$', views.mascota_delete_views,name="eliminar mascota"),
 ]
-

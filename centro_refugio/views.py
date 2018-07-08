@@ -5,6 +5,10 @@ from django.shortcuts import render,redirect
 
 from .models import Centro
 from .forms import CentroRefugioForm
+## add for reverse url problem
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+
 # Create your views here.
 def centro_create_views(request):
     if request.method == 'POST':
@@ -24,9 +28,10 @@ def centro_list_views(request):
     if request.method == 'GET':
         centro = Centro.objects.all()
     context = {
-        'cemtro': centro
+        'centro': centro
     }
     return render(request,"centro_list.html",context)
+    #return HttpResponseRedirect(reverse('centro_refugio:listar'))
 
 def centro_edit_views(request,id_refugio):
     centro = Centro.objects.get(pk=id_refugio)
