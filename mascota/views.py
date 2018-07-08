@@ -21,10 +21,12 @@ def mascota_views(request):
 
 def mascota_list_views(request):
     # QuerySet for list pets
+    m1 = Mascota.objects.all()
+    print(m1)
     mascota = Mascota.objects.all()
 
     context = {
-        'mascotas': mascota
+        'mascotas': mascota,
     }
     return render(request,"mascota_list.html",context)
 

@@ -22,4 +22,4 @@ class Mascota(models.Model):
     vacuna = models.ManyToManyField(Vacuna,blank=True)
 
     def __unicode__(self):
-        return self.nombre
+        return '{}'.format(self.nombre)
