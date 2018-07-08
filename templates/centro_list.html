@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br><br><br><br>  
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>#</td>
+            <td>Nombre del centro de adopcion</td>
+            <td>Acciones</td>
+        </tr>
+    </thead>
+
+    <tbody>
+        <!-- VIDEO 13 -->
+        <h1>{{ centro }}</h1>
+        {% if centro %}
+            {% for cent in centro %}
+                <tr>
+                    <td>{{ cent.id }}</td>
+                    <td>{{ cent.nombre_refugio }}</td>
+                    <td>
+                        <a class= "btn btn-primary" href="{% url 'centro_refugio:centro_list_views' id_refugio %}">Editar</a>
+                        <a class= "btn btn-danger" href="{% url 'centro_Refugio:centro_delete_views' id_refugio %}">Eliminar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        {% else %}
+                <h2>No hay centros de adopcion registrados </h2>
+        {% endif %}
+    </tbody>
+
+</table>
+
+{% endblock content %}

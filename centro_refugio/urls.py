@@ -20,7 +20,11 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 
-urlpatterns = [
-    
+from . import views
 
+urlpatterns = [
+    url(r'^refugio/$', views.centro_create_views, name='crear refugio'),
+    url(r'^refugio/editar/?P<id_refugio>[0-9]+/$', views.centro_edit_views, name='editar refugio'),
+    url(r'^refugio/eliminar/?P<id_refugio>[0-9]+/$', views.centro_delete_views, name='eliminar refugio'),  
+    url(r'^refugio/listar/$', views.centro_list_views, name='lista de refugios'),
 ]
