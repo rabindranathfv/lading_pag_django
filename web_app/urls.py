@@ -22,9 +22,9 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^', include('mascota.urls',namespace="mascota",app_name='mascota')),
-    url(r'^', include('adopcion.urls',namespace="adopcion",app_name='adopcion')),
-    url(r'^', include('centro_refugio.urls',namespace="centro_refugio",app_name='centro_refugio')),
+    url(r'^mascota/$', include('mascota.urls',namespace="mascota",app_name='mascota')),
+    url(r'^adopcion/$', include('adopcion.urls',namespace="adopcion",app_name='adopcion')),
+    url(r'^centro_Refugio/$', include('centro_refugio.urls',namespace="centro_refugio",app_name='centro_refugio')),
 
 ]
 

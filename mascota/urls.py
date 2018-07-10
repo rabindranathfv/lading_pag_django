@@ -23,8 +23,8 @@ from django.conf.urls.static import static
 from . import views
 
 urlpatterns = [
-    url(r'^mascota/$', views.mascota_views,name="mascota"),
-    url(r'^mascota/listar/$', views.mascota_list_views,name="lista de mascotas"),
-    url(r'^mascota/editar/(?P<id_mascota>\d+)$', views.mascota_list_views,name="editar mascota"),
-    url(r'^mascota/eliminar/(?P<id_mascota>\d+)$', views.mascota_delete_views,name="eliminar mascota"),
+    url(r'^agregar_mascota/$', views.mascota_views,name="mascota"),
+    url(r'^listar/$', views.mascota_list_views,name="listar-mascotas"),
+    url(r'^editar/(?P<id_mascota>\d+)/$', views.mascota_list_views,name="editar-mascota"),
+    url(r'^eliminar/(?P<id_mascota>\d+)/$', views.mascota_delete_views,name="eliminar-mascota"),
 ]
