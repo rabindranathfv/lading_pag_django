@@ -20,11 +20,15 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 
+from adopcion.views import home
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^mascota/$', include('mascota.urls',namespace="mascota",app_name='mascota')),
-    url(r'^adopcion/$', include('adopcion.urls',namespace="adopcion",app_name='adopcion')),
-    url(r'^centro_Refugio/$', include('centro_refugio.urls',namespace="centro_refugio",app_name='centro_refugio')),
+    url(r'^mascota/', include('mascota.urls',namespace="mascota",app_name='mascota')),
+    url(r'^adopcion/', include('adopcion.urls',namespace="adopcion",app_name='adopcion')),
+    url(r'^centro_refugio/', include('centro_refugio.urls',namespace="centro_refugio",app_name='centro_refugio')),
+
+    url(r'^home/$', home,name="home"),
 
 ]
 
