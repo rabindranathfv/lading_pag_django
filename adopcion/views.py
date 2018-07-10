@@ -18,7 +18,7 @@ def persona_add(request):
         form = PersonaForm(request.POST or None)
         if form.is_valid():
             form.save()
-            return redirect('adopcion:home')
+            return redirect('home')
     else:
         form = PersonaForm(request.POST or None)
 

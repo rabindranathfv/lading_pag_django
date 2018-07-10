@@ -12,7 +12,7 @@ def mascota_views(request):
         form = MascotaForm(request.POST or None)
         if form.is_valid():
             form.save()
-            return redirect('adopcion:home')
+            return redirect('home')
     else:
         form = MascotaForm(request.POST or None)
 
