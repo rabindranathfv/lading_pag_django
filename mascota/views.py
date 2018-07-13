@@ -29,22 +29,22 @@ def mascota_list_views(request):
     }
     return render(request,"mascota_list.html",context)
 
-def mascota_edit_views(request,id_mascota):
-    mascota = Mascota.objects.get(pk=id_mascota)
+def mascota_edit_views(request,mascota_id):
+    mascota = Mascota.objects.get(pk=mascota_id)
     
     if request.method == 'GET':
         form = MascotaForm(instance=mascota)
     else:
         if request.method == 'POST':
-            form = MascotaForm(request,instance=mascota)
+            form = MascotaForm(request.POST,instance=mascota)
             if form.is_valid():
                 form.save()
-            return redirect('mascota:mascota_list_view')
+            return redirect('mascota:listar-mascotas')
     return render(request,"mascota.html",context= { 'form': form})
 
-def mascota_delete_views(request,id_mascota):
-    mascota = Mascota.objects.get(pk=id_mascota)
+def mascota_delete_views(request,mascota_id):
+    mascota = Mascota.objects.get(pk=mascota_id)
     if request.method == 'POST':
         mascota.delete()
-        return redirect('mascota:mascota_list_views')
+        return redirect('mascota:listar-mascotas')
     return render(request, "mascota_delete.html",context={ 'mascotas': mascota})

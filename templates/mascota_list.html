@@ -18,18 +18,18 @@
     <tbody>
         <!-- VIDEO 13 -->
         <h1> {{ test }}</h1>
-        {% if mascota %}
-            {% for mascotas in mascota %}
+        {% if mascotas %}
+            {% for mascota in mascotas %}
                 <tr>
-                    <td>{{ mascotas.id }}</td>
-                    <td>{{ mascotas.nombre }}</td>
-                    <td>{{ mascotas.sexo }}</td>
-                    <td>{{ mascotas.edad_aproximada }}</td>
-                    <td>{{ mascotas.fecha_rescate }}</td>
-                    <td>{{ mascotas.persona.nombre }}</td>
+                    <td>{{ mascota.id }}</td>
+                    <td>{{ mascota.nombre }}</td>
+                    <td>{{ mascota.sexo }}</td>
+                    <td>{{ mascota.edad_aproximada }}</td>
+                    <td>{{ mascota.fecha_rescate }}</td>
+                    <td>{{ mascota.persona.nombre }}</td>
                     <td>
-                        <a class= "btn btn-primary" href="{% url 'mascota:mascota_list_views' id_mascota %}">Editar</a>
-                        <a class= "btn btn-danger" href="{% url 'mascota:mascota_delete_views' id_mascota %}">Eliminar</a>
+                        <a class= "btn btn-primary" href="{% url 'mascota:editar-mascota' mascota.id %}">Editar</a>
+                        <a class= "btn btn-danger" href="{% url 'mascota:eliminar-mascota' mascota.id %}">Eliminar</a>
                     </td>
                 </tr>
             {% endfor %}

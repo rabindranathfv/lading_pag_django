@@ -10,10 +10,10 @@
     <div class="col-md-6 offset-3">
         <form action="" method="post">
             {% csrf_token %}
-            <h3>Desea eliminar el registro de {{ mascota.nombre }}</h3>
+            <h3>Desea eliminar el registro de {{ mascotas.nombre }}</h3>
             
             <button type="submit" class="btn btn-danger">Adoptar Mascota</button>
-            <a class="btn btn-default" href="{% url 'mascota:mascota_list_views' %}">Cancelar</a>
+            <a class="btn btn-default" href="{% url 'mascota:listar-mascotas' %}">Cancelar</a>
         </form>
     </div>
 </div>
