@@ -19,44 +19,43 @@ def centro_create_views(request):
     else:
         form = CentroRefugioForm(request.POST or None)        
     context = {
-        'form': form
+        'form_ctxt': form
     }        
-    return render(request,"refugio.html",context)
+    return render(request,"centro.html",context)
 
 def centro_list_views(request):
     print(Centro.objects.all())
     if request.method == 'GET':
         centro = Centro.objects.all()
     context = {
-        'centro': centro
+        'centro_ctxt': centro
     }
     return render(request,"centro_list.html",context)
-    #return HttpResponseRedirect(reverse('centro_refugio:listar'))
 
-def centro_edit_views(request,id_refugio):
-    centro = Centro.objects.get(pk=id_refugio)
+def centro_edit_views(request,centro_id):
+    centro = Centro.objects.get(pk=centro_id)
     if request.method == 'GET':
         # captura el evento get y guarda la instacia en el model correspondiente
         form = CentroRefugioForm(instance = centro)
     else:
         if request.method == 'POST':
-            form = CentroRefugioForm(request,instance = centro)
+            form = CentroRefugioForm(request.POST or None,instance = centro)
             if form.is_valid():
                 form.save()
-            return redirect('centro_Refugio:centro_list_views')
+            return redirect('centro:listar-centro')
     context = {
-        'form': form
+        'form_ctxt': form
     }
-    return render(request,"refugio.html",context)
+    return render(request,"centro.html",context)
 
     
-def centro_delete_views(request,id_refugio):
-    centro = Centro.objects.get(pk = id_refugio)
+def centro_delete_views(request,centro_id):
+    centro = Centro.objects.get(pk = centro_id)
     if request.method == 'POST':
         centro.delete()
-        return redirect('centro_refugio:centro_list_views')
+        return redirect('centro:listar-centro')
     context = {
-        'centro': centro
+        'centro_ctxt': centro
     }
     return render(request,"centro_list.html",context)
     

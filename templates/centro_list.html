@@ -13,15 +13,14 @@
 
     <tbody>
         <!-- VIDEO 13 -->
-        <h1>{{ centro }}</h1>
-        {% if centro %}
-            {% for cent in centro %}
+        {% if centro_ctxt %}
+            {% for centro in centro_ctxt %}
                 <tr>
-                    <td>{{ cent.id }}</td>
-                    <td>{{ cent.nombre_refugio }}</td>
+                    <td>{{ centro.id }}</td>
+                    <td>{{ centro.nombre_refugio }}</td>
                     <td>
-                        <a class= "btn btn-primary" href="{% url 'centro_refugio:centro_list_views' id_refugio %}">Editar</a>
-                        <a class= "btn btn-danger" href="{% url 'centro_Refugio:centro_delete_views' id_refugio %}">Eliminar</a>
+                        <a class= "btn btn-primary" href="{% url 'centro:editar-centro' centro_id %}">Editar</a>
+                        <a class= "btn btn-danger" href="{% url 'centro:eliminar-centro' centro_id %}">Eliminar</a>
                     </td>
                 </tr>
             {% endfor %}

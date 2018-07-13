@@ -26,7 +26,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^mascota/', include('mascota.urls',namespace="mascota",app_name='mascota')),
     url(r'^adopcion/', include('adopcion.urls',namespace="adopcion",app_name='adopcion')),
-    url(r'^centro_refugio/', include('centro_refugio.urls',namespace="centro_refugio",app_name='centro_refugio')),
+    url(r'^centro/', include('centro_refugio.urls',namespace="centro",app_name='centro')),
 
     url(r'^home/$', home,name="home"),
 
