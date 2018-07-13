@@ -24,8 +24,8 @@ from . import views
 
 urlpatterns = [
     url(r'^crear_centro/$', views.centro_create_views, name='crear-centro'),
-    url(r'^editar/(?P<centro_id>[0-9]\d+)/$', views.centro_edit_views, name='editar-centro'),
-    url(r'^eliminar/(?P<centro_id>[0-9]\d+)/$', views.centro_delete_views, name='eliminar-centro'),  
+    url(r'^editar/(?P<centro_id>[0-9]+)/$', views.centro_edit_views, name='editar-centro'),
+    url(r'^eliminar/(?P<centro_id>[0-9]+)/$', views.centro_delete_views, name='eliminar-centro'),  
     #url(r'^refugio/listar/$', views.centro_list_views, name='lista de refugios'),
     url(r'^listar/$', views.centro_list_views, name='listar-centro '),
 ]

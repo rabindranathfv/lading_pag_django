@@ -42,7 +42,7 @@ def centro_edit_views(request,centro_id):
             form = CentroRefugioForm(request.POST or None,instance = centro)
             if form.is_valid():
                 form.save()
-            return redirect('centro:listar-centro')
+            return redirect('centro:crear-centro')
     context = {
         'form_ctxt': form
     }
