@@ -39,7 +39,7 @@ def centro_edit_views(request,centro_id):
         form = CentroRefugioForm(instance = centro)
     else:
         if request.method == 'POST':
-            form = CentroRefugioForm(request.POST or None,instance = centro)
+            form = CentroRefugioForm(request.POST,instance = centro)
             if form.is_valid():
                 form.save()
             return redirect('centro:crear-centro')
@@ -50,7 +50,7 @@ def centro_edit_views(request,centro_id):
 
     
 def centro_delete_views(request,centro_id):
-    centro = Centro.objects.get(pk = centro_id)
+    centro = Centro.objects.get(pk=centro_id)
     if request.method == 'POST':
         centro.delete()
         return redirect('centro:listar-centro')
@@ -58,4 +58,3 @@ def centro_delete_views(request,centro_id):
         'centro_ctxt': centro
     }
     return render(request,"centro_list.html",context)
-    
