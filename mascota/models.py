@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 
 from django.db import models
 
+
 # Create your models here.
 class Vacuna(models.Model):
     nombre = models.CharField(max_length=50)
@@ -22,4 +23,4 @@ class Mascota(models.Model):
     vacuna = models.ManyToManyField(Vacuna,blank=True)
 
     def __unicode__(self):
-        return '{}'.format(self.nombre)
+        return '{} {} {} {} {} {}'.format(self.nombre,self.sexo,self.edad_aproximada,self.fecha_rescate,self.persona)

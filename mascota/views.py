@@ -6,13 +6,15 @@ from django.shortcuts import render,redirect
 from .models import Vacuna,Mascota
 from .forms import MascotaForm
 
+# for xhtml2pdf
+
 # Create your views here.
 def mascota_views(request):
     if request.method == 'POST':
         form = MascotaForm(request.POST or None)
         if form.is_valid():
             form.save()
-            return redirect('home')
+            return redirect('mascota:mascota')
     else:
         form = MascotaForm(request.POST or None)
 
@@ -22,7 +24,7 @@ def mascota_views(request):
 def mascota_list_views(request):
     # QuerySet for list pets
     mascota = Mascota.objects.all()
-    print(mascota)
+    print mascota 
     context = {
         'mascotas': mascota,
     }
