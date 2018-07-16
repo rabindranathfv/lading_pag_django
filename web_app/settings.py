@@ -49,7 +49,6 @@ INSTALLED_APPS = [
 
     'mascota',
     'adopcion',
-    'centro_refugio',
 ]
 
 ## for use cryspy forms

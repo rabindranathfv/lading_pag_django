@@ -25,7 +25,6 @@ def mascota_list_views(request):
     print(mascota)
     context = {
         'mascotas': mascota,
-        'test': 'PROBANDO',
     }
     return render(request,"mascota_list.html",context)
 
