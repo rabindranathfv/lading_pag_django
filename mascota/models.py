@@ -23,4 +23,4 @@ class Mascota(models.Model):
     vacuna = models.ManyToManyField(Vacuna,blank=True)
 
     def __unicode__(self):
-        return '{} {} {} {} {} {}'.format(self.nombre,self.sexo,self.edad_aproximada,self.fecha_rescate,self.persona)
+        return '{}'.format(self.nombre)

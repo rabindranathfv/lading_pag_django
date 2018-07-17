@@ -20,8 +20,7 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 
-from .render import Pdf
-
+#from .views import GeneratePDF,mascota_views,mascota_list_views,mascota_edit_views,mascota_delete_views
 from . import views
 
 urlpatterns = [
@@ -29,4 +28,10 @@ urlpatterns = [
     url(r'^listar/$', views.mascota_list_views,name="listar-mascotas"),
     url(r'^editar/(?P<mascota_id>[0-9]+)/$', views.mascota_edit_views,name="editar-mascota"),
     url(r'^eliminar/(?P<mascota_id>[0-9]+)/$', views.mascota_delete_views,name="eliminar-mascota"),
+
+    # generacion de pdf
+    # funciona con la vista basada en clases
+    #url(r'^pdf/$', GeneratePDF.as_view()),
+    # vista basada en funciones
+    url(r'^pdf/$', views.GeneratePDF),
 ]

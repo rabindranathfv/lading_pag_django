@@ -7,6 +7,11 @@ from .models import Vacuna,Mascota
 from .forms import MascotaForm
 
 # for xhtml2pdf
+from django.http import HttpResponse
+from django.views.generic import View
+from .utils import render_to_pdf
+from django.template.loader import get_template
+
 
 # Create your views here.
 def mascota_views(request):
@@ -49,3 +54,36 @@ def mascota_delete_views(request,mascota_id):
         mascota.delete()
         return redirect('mascota:listar-mascotas')
     return render(request, "mascota_delete.html",context={ 'mascotas': mascota})
+
+# class GeneratePDF(View):
+#     def get(self, request, *args, **kwargs):
+#         #obtener el template
+#         template = get_template('pdf/mascota_pdf.html')
+#         # queryset
+#         mascota = Mascota.objects.all()
+#         # Data a renderizar en el template
+#         context = {
+#             'mascotas' : mascota,
+#         }
+#         # render template
+#         html = template.render(context)
+#         #respuesta del pdf en el navegador
+#         return HttpResponse(html)
+
+def GeneratePDF(request,*args , **kwargs):
+    #obtener el template
+    template = get_template('pdf/mascota_pdf.html')
+    # queryset
+    mascota = Mascota.objects.all()
+    # Data a renderizar en el template
+    context = {
+        'mascotas' : mascota,
+    }
+    # render template
+    html = template.render(context)
+    # to download in pdf
+    pdf = render_to_pdf('pdf/mascota_pdf.html',context)
+    #respuesta del pdf en el navegador
+    if pdf:
+        return HttpResponse(pdf, content_type='application/pdf')
+    return HttpResponse("Crear pagina de Error 404")
