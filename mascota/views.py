@@ -95,12 +95,18 @@ def export_to_excel(request):
     
     # each item is a line in the excel sheet
     # it can be anything you pull from the db
+    mascota = Mascota.objects.all()
     excel_data = [
-      ['header1', 'header2', 'header3', 'header4', 'header5']
-      [1,4,5,6,7],
-      [5,6,2,4,8]
+      ['#', 'Nombre', 'Sexo', 'Edad', 'Fecha Rescate','Adoptante'],
     ]
+    print(type(excel_data))
 
+    for row_mascota in mascota:
+        print( row_mascota.id , row_mascota.nombre, row_mascota.edad_aproximada, row_mascota.fecha_rescate, row_mascota.persona.nombre)
+        excel_data.append([row_mascota.id , row_mascota.nombre, row_mascota.edad_aproximada, row_mascota.fecha_rescate, row_mascota.persona.nombre])
+        print('\n')
+
+    print excel_data
     if excel_data:
         wb = Workbook(write_only=True)
         ws = wb.create_sheet()
@@ -108,7 +114,7 @@ def export_to_excel(request):
             ws.append(line)
 
     response = HttpResponse(content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
-    response['Content-Disposition'] = 'attachment; filename=mydata.xlsx'
+    response['Content-Disposition'] = 'attachment; filename=mascotas_dump.xlsx'
 
     wb.save(response)
 
