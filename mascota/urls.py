@@ -34,4 +34,7 @@ urlpatterns = [
     #url(r'^pdf/$', GeneratePDF.as_view()),
     # vista basada en funciones
     url(r'^pdf/$', views.GeneratePDF),
+
+    # Excel export
+    url(r'^exportar_mascotas/$', views.export_to_excel,name="export_to_excel"),
 ]
